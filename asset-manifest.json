@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Appscrip-task-SeetaRamaRaju/static/css/main.a471bfc7.css",
+    "main.js": "/Appscrip-task-SeetaRamaRaju/static/js/main.f09b486f.js",
+    "static/js/453.58bd3318.chunk.js": "/Appscrip-task-SeetaRamaRaju/static/js/453.58bd3318.chunk.js",
+    "index.html": "/Appscrip-task-SeetaRamaRaju/index.html",
+    "main.a471bfc7.css.map": "/Appscrip-task-SeetaRamaRaju/static/css/main.a471bfc7.css.map",
+    "main.f09b486f.js.map": "/Appscrip-task-SeetaRamaRaju/static/js/main.f09b486f.js.map",
+    "453.58bd3318.chunk.js.map": "/Appscrip-task-SeetaRamaRaju/static/js/453.58bd3318.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a471bfc7.css",
+    "static/js/main.f09b486f.js"
+  ]
+}
