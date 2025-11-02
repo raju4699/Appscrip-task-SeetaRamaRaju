@@ -45,13 +45,15 @@ const FilterSection = ({
   options = [],
   selected = [],
   onToggle,
+  onFilterToggle,
   isOpen: sectionIsOpen,
 }) => {
+  const filterKey = title.replace(/\s/g, "_");
+
   return (
     <div className={styles.filterSection}>
       <div className={styles.filterSectionHeader} onClick={onToggle}>
         <h3 className={styles.filterSectionTitle}>{title}</h3>
-
         <MdKeyboardArrowDown
           className={`${styles.filterSectionToggle} ${
             sectionIsOpen ? styles.rotatedArrow : ""
@@ -71,11 +73,8 @@ const FilterSection = ({
               <input
                 type="checkbox"
                 checked={selected.includes(option)}
-                onChange={() => {
-                  console.log(`Toggled: ${option}`);
-                }}
+                onChange={() => onFilterToggle(filterKey, option)}
               />
-
               {option}
             </label>
           ))}
@@ -91,6 +90,7 @@ const MobileFilterModal = ({
   openSections,
   toggleSection,
   selectedFilters,
+  handleFilterToggle,
 }) => {
   if (!isOpen) return null;
 
@@ -118,8 +118,9 @@ const MobileFilterModal = ({
               title={title}
               isOpen={!!openSections[title]}
               onToggle={() => toggleSection(title)}
+              onFilterToggle={handleFilterToggle}
               options={FilterOptions[title.replace(/\s/g, "_")]}
-              selected={selectedFilters[title] || []}
+              selected={selectedFilters[title.replace(/\s/g, "_")] || []}
             />
           ))}
         </div>
@@ -137,13 +138,32 @@ const Filters = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState(Options[0]);
   const [openSections, setOpenSections] = useState({});
+  const [selectedFilters, setSelectedFilters] = useState({});
 
   const toggleSection = (title) => {
     setOpenSections((prev) => ({
       ...prev,
-
       [title]: !prev[title],
     }));
+  };
+
+  const handleFilterToggle = (filterKey, option) => {
+    setSelectedFilters((prevFilters) => {
+      const currentSelections = prevFilters[filterKey] || [];
+      const isSelected = currentSelections.includes(option);
+
+      if (isSelected) {
+        return {
+          ...prevFilters,
+          [filterKey]: currentSelections.filter((item) => item !== option),
+        };
+      } else {
+        return {
+          ...prevFilters,
+          [filterKey]: [...currentSelections, option],
+        };
+      }
+    });
   };
 
   const handleSortSelect = (option) => {
@@ -187,7 +207,6 @@ const Filters = () => {
                   selectedSortOption === option ? styles.activeCheckIcon : ""
                 }`}
               />
-
               {option}
             </li>
           ))}
@@ -245,7 +264,9 @@ const Filters = () => {
                 title={title}
                 isOpen={!!openSections[title]}
                 onToggle={() => toggleSection(title)}
+                onFilterToggle={handleFilterToggle}
                 options={FilterOptions[title.replace(/\s/g, "_")]}
+                selected={selectedFilters[title.replace(/\s/g, "_")] || []}
               />
             ))}
           </div>
@@ -259,6 +280,8 @@ const Filters = () => {
         onClose={() => setIsFilterPanelOpen(false)}
         openSections={openSections}
         toggleSection={toggleSection}
+        selectedFilters={selectedFilters}
+        handleFilterToggle={handleFilterToggle}
       />
     </div>
   );
