@@ -1,0 +1,285 @@
+.footerContainer {
+  background-color: #000;
+  color: #fff;
+  padding: 32px 16px 16px 16px;
+  font-family: sans-serif;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.link,
+.subLink {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.link:hover,
+.subLink:hover {
+  opacity: 1;
+}
+.topSection {
+  border-bottom: 1px solid #333;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribeText {
+  display: none;
+}
+.subscribeTextSmall {
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.beTheFirst {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.emailInput {
+  width: 226px;
+  height: 47px;
+  max-width: 384px;
+  flex-grow: 1;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+  background: #fff;
+  outline: none;
+  border-radius: 4px;
+}
+
+.emailInput::placeholder {
+  color: #999;
+}
+
+.subscribeButton {
+  border: 1.14px solid #ffffff;
+  width: 109px;
+  height: 47px;
+  opacity: 0.3;
+  border-width: 1.14px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #f1f1f1;
+}
+.hrLine {
+  border: 1px solid #e5e5e5;
+  width: 100%;
+}
+
+.subscribeButton:hover {
+  background-color: #1a1a1a;
+}
+
+.contactInfo {
+  margin-bottom: 24px;
+}
+.contactInfo div {
+  margin-bottom: 8px;
+}
+.contactInfo a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.85;
+}
+
+.currencyDetails {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  gap: 12px;
+}
+.currencyFlag {
+  width: 20px;
+  height: 15px;
+  margin-right: 8px;
+  border: 1px solid #666;
+}
+.currencyHoverText {
+  display: none;
+}
+.mobileDropdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+}
+.mobileDropdownContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.mobileDropdownContent.open {
+  max-height: 500px;
+}
+.mobileLinkList {
+  padding: 16px 0;
+}
+.linksMainHeading {
+  display: none;
+}
+
+.followUs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.socialIcon {
+  color: #fff;
+  font-size: 20px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  margin-top: 24px;
+}
+.socialIcon:hover {
+  opacity: 1;
+}
+.acceptsSmall {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.acceptsLarge {
+  display: none;
+}
+.paymentLogos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.paymentLogo {
+  width: 48px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 24px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    padding: 48px;
+  }
+
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .subscribeText {
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .subscribeTextSmall {
+    display: none;
+  }
+
+  .mobileDropdownHeader {
+    display: none;
+  }
+  .mobileDropdownContent {
+    max-height: none !important;
+    overflow: visible;
+  }
+  .mobileLinkList {
+    padding: 0;
+  }
+  .contactInfo,
+  .currencyInfo {
+    margin-bottom: 0;
+  }
+  .currencyHoverText {
+    display: flex;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 8px;
+  }
+
+  .bottomSection {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .mettaMuseLinks {
+    margin-bottom: 0;
+  }
+  .linksMainHeading {
+    display: flex;
+    font-size: 20px;
+    margin: 12px 0px;
+  }
+
+  .followUsColumn {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+  }
+
+  .followUs {
+    margin-bottom: 12px;
+  }
+  .acceptsSmall {
+    display: none;
+  }
+  .acceptsLarge {
+    display: block;
+  }
+  .socialIcon {
+    margin-top: 4px;
+  }
+  .hrLine {
+    display: none;
+  }
+}

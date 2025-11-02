@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+.allFiltersContainer {
+  margin-top: 32px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.smallDeviceFilterContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.largeDeviceFilterContainer {
+  display: none;
+}
+
+.filtersButton {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 16px;
+  color: #252020;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+.mobileModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: hidden;
+  transition: background 0.3s ease-out;
+}
+
+.mobileModalContent {
+  height: 75vh;
+  width: 90%;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  background: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-out;
+  transform: translateY(100%);
+}
+.modalOpen {
+  transform: translateY(0);
+}
+
+.mobileModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.modalTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.mobileCloseButton,
+.mobileClearButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  padding: 0;
+}
+
+.mobileClearButton {
+  color: #000000;
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mobileFilterSections {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+.mobileModalFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.applyFiltersButton {
+  width: 100%;
+  align-self: center;
+  padding: 15px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+@media (max-width: 768px) {
+  .filterPanelContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobileModalOverlay {
+    display: none;
+  }
+}
+
+.filterControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+
+.mainContentAreaWrapper {
+  display: grid;
+  grid-template-columns: 0px 1fr;
+  align-items: stretch;
+  transition: grid-template-columns 0.3s ease-out;
+}
+
+.panelOpenLayout {
+  grid-template-columns: 30% 1fr;
+}
+
+.filterPanelContainer {
+  width: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  background-color: white;
+}
+
+.filterPanelHeader {
+  display: flex;
+  justify-content: flex-end; /* Align close button to the right */
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 15;
+}
+
+.closeFilterButton {
+  background-color: #f0f0f0;
+  color: #555;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.filterSection {
+  border-bottom: 1px solid #eee;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .smallDeviceFilterContainer {
+    display: none;
+  }
+
+  .largeDeviceFilterContainer {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filterPanelHeader {
+    justify-content: flex-end;
+  }
+}
+
+.hideFilterButton {
+  background-color: transparent;
+  color: #888792;
+  border: none;
+  outline: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.filterPanelOpen {
+  transform: translateX(0);
+}
+
+.filterSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.filterSectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #252020;
+  text-transform: uppercase;
+  margin: 0;
+}
+.filterSectionSubTitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #252020;
+  margin: 12px 0px;
+}
+
+.filterSectionToggle {
+  transition: transform 0.2s ease-in-out;
+}
+
+.filterSectionContent {
+  padding-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+}
+
+.filterSectionContent p {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.unselectAll {
+  display: block;
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+  font-family: "DM Sans", sans-serif;
+  margin-right: -10%;
+}
+
+.selectElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 16px;
+  color: #252020;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 240px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.downArrow {
+  transition: transform 0.2s ease-in-out;
+  margin-left: 12px;
+  flex-shrink: 0;
+  color: #252020;
+}
+
+.rotatedArrow {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 8px;
+  width: 100%;
+  list-style: none;
+  padding: 8px 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.optionItem {
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #252020;
+  transition: background-color 0.1s;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.optionItem:hover {
+  background-color: #f0f0f0;
+}
+
+.checkIcon {
+  margin-right: 12px;
+  visibility: hidden;
+  width: 18px;
+  height: 18px;
+}
+
+.activeCheckIcon {
+  visibility: visible;
+  color: #000000;
+}

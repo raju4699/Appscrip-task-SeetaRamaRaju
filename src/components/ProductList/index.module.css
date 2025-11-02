@@ -1,0 +1,23 @@
+.productsContentContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.productsListContainer {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .productsListContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
